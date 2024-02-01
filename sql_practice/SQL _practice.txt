@@ -92,6 +92,28 @@ SELECT * FROM CITY WHERE COUNTRYCODE = 'JPN'
 
 select * from city where ID = 1661
 
+Distinct product categories from the "products" table:
+
+SELECT DISTINCT category
+FROM products;
+
+
+Total number of employees in each department in the "employees" table:
+
+SELECT department, COUNT(employee_id) AS total_employees
+FROM employees
+GROUP BY department;
+
+
+Average price of products in each category from the "products" table:
+
+SELECT category, AVG(price) AS avg_price
+FROM products
+GROUP BY category;
+
+
+
+
 
 
 
