@@ -1,0 +1,141 @@
+SQL :
+
+Retrieving all columns from a table named "employees":
+SELECT * FROM employees;
+
+Distinct values from a column "city" in the "customers" table:
+SELECT DISTINCT city FROM customers;
+
+Count the number of rows in the "orders" table:
+SELECT COUNT(*) AS total_orders FROM orders;
+
+average salary for each department in the "employees" table:
+SELECT department, AVG(salary) AS avg_salary
+FROM employees
+GROUP BY department;
+
+
+Top 5 highest-paid employees from the "salary" table:
+SELECT employee_id, salary
+FROM salary
+ORDER BY salary DESC
+LIMIT 5;
+
+customers who have placed more than 3 orders:
+SELECT customer_id
+FROM orders
+GROUP BY customer_id
+HAVING COUNT(order_id) > 3;
+
+cumulative salary for each employee in the "employees" table, ordered by employee_id:
+
+SELECT employee_id, salary, SUM(salary) OVER (ORDER BY employee_id) AS cumulative_salary
+FROM employees;
+
+customers and the total amount they have spent on orders:
+
+SELECT c.customer_id, c.customer_name, SUM(o.order_amount) AS total_spent
+FROM customers c
+JOIN orders o ON c.customer_id = o.customer_id
+GROUP BY c.customer_id, c.customer_name;
+
+product name and price from the "products" table for products with a price greater than 50:
+
+SELECT product_name, price
+FROM products
+WHERE price > 50;
+
+Find the count of orders placed by each customer in the "orders" table:
+
+SELECT customer_id, COUNT(order_id) AS order_count
+FROM orders
+GROUP BY customer_id;
+
+List the employees who have joined in the last year (current year - 1)
+
+SELECT employee_id, employee_name, join_date
+FROM employees
+WHERE YEAR(join_date) = YEAR(CURDATE()) - 1;
+
+
+Three most recent orders along with customer details:
+
+SELECT o.order_id, o.order_date, c.customer_name
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id
+ORDER BY o.order_date DESC
+LIMIT 3;
+
+"Questions from HackerRank Plartform :
+
+select * from CITY where Population > 100000 and CountryCode = 'USA'
+
+select NAME from CITY where population > 120000 and CountryCode = 'USA'
+
+select * from CITY where Population > 100000 and CountryCode = 'USA'
+
+select NAME from CITY where population > 120000 and CountryCode = 'USA'
+
+select NAME from CITY where population > 120000 and CountryCode = 'USA'
+
+select NAME from CITY where population > 120000 and CountryCode = 'USA'
+
+SELECT DISTINCT CITY FROM STATION WHERE SUBSTRING(CITY,1,1) in('A','E','I','O','U');
+
+select  count(city) - count(distinct city)from station 
+
+SELECT distinct city from station where id %2 =0
+
+select NAME from city where COUNTRYCODE ='JPN'
+
+SELECT * FROM CITY WHERE COUNTRYCODE = 'JPN'
+
+select * from city where ID = 1661
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
